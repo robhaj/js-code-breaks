@@ -6,7 +6,6 @@ Sometimes, a simple typo can really be the root of all evil. But more often, the
 
 - Changing code in one place all too often breaks code in a (seemingly) unrelated place.
 - CI
--
 
 ## Poor Error Reporting
 - Operational errors
