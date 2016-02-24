@@ -8,6 +8,7 @@ Sometimes, a simple typo can really be the root of all evil. But more often, the
 - CI
 
 ## Poor Error Reporting
+- [Error Reporting Source](https://www.joyent.com/developers/node/design/errors)
 - Operational errors
   -  run-time problems experienced by correctly-written programs. These are not bugs in the program. In fact, these are usually problems with something else: the system itself (e.g., out of memory or too many open files), the system's configuration (e.g., no route to a remote host), the network (e.g., socket hang-up), or a remote service (e.g., a 500 error, failure to connect, or the like). Examples include:
     - failed to connect to server
@@ -34,12 +35,27 @@ Sometimes, a simple typo can really be the root of all evil. But more often, the
 
 ## Over-Engineering
 - Every piece of code solves a problem. And ideally, it should only solve a problem you have (or are very likely to have). Of course, an endless number of other problems can be imagined... but trying to solve them when you're not likely to actually have them will make your code more complex than necessary.
-- [Over-Engineering](http://www.codesimplicity.com/post/what-is-overengineering/)
+- [Over-Engineering Source](http://www.codesimplicity.com/post/what-is-overengineering/)
 
 
 ## Over-Dependent
 - While external libraries can lighten your workload, they can (unfortunately) also bite you: when they introduce bugs, when they increase loading time, when their development is discontinued, when you simply have too many of them in your project to keep an overview...
+- Dependency Checks
+
 
 ## Maintenance
+- [Maintainability Source](http://singlepageappbook.com/maintainability1.html)
 - Code rots. It's a sad but true fact. While some parts in a project change and evolve, others are left behind. These parts become liabilities over time. For example, because framework features became obsolete; or because the new code's demands aren't satisfied anymore.
+- Modularity
+  - Modular code is code which is separated into independent modules. The idea is that internal details of individual modules should be hidden behind a public interface, making each module easier to understand, test and refactor independently of others.
+  - Modularity is not just about code organization. You can have code that looks modular, but isn't. You can arrange your code in multiple modules and have namespaces, but that code can still expose its private details and have complex interdependencies through expectations about other parts of the code.
 - Refactor
+- What is maintainable code?
+  - it is easy to understand and troubleshoot
+  - it is easy to test
+  - it is easy to refactor
+- What is hard-to-maintain code?
+  - it has many dependencies, making it hard to understand and hard to test independently of the whole
+  - it accesses data from and writes data to the global scope, which makes it hard to consistently set up the same state for testing
+  - it has side-effects, which means that it cannot be instantiated easily/repeatably in a test
+  - it exposes a large external surface and doesn't hide its implementation details, which makes it hard to refactor without breaking many other components that depend on that public interface
